@@ -1,0 +1,87 @@
+{
+  "name": "novelui",
+  "version": "2.0.0",
+  "description": "Simple React component library.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "files": [
+    "./dist/**/*",
+    "./src/**/*"
+  ],
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist & tsc & rollup -c",
+    "lint": "eslint --fix ./src",
+    "format": "prettier --write ./src",
+    "prepare": "husky install",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "release": "yarn version --patch && pnpm badges && pnpm build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pnpm lint"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "pnpm  lint",
+      "pnpm  format"
+    ]
+  },
+  "author": "Jarosław Kucharski",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaroslawkucharski/novelUI"
+  },
+  "bugs": {
+    "url": "https://github.com/jaroslawkucharski/novelUI/issues"
+  },
+  "homepage": "https://github.com/jaroslawkucharski/novelUI#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.4",
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-typescript": "^11.1.0",
+    "@storybook/addon-essentials": "^7.0.7",
+    "@storybook/addon-interactions": "^7.0.7",
+    "@storybook/addon-links": "^7.0.7",
+    "@storybook/addons": "^7.0.7",
+    "@storybook/blocks": "^7.0.7",
+    "@storybook/react": "^7.0.7",
+    "@storybook/react-webpack5": "^7.0.7",
+    "@storybook/testing-library": "^0.1.0",
+    "@storybook/theming": "^7.0.7",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.0.11",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-storybook": "^0.6.11",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "prettier": "^2.8.8",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^3.21.0",
+    "storybook": "^7.0.7",
+    "styled-components": "^5.3.10",
+    "typescript": "^5.0.4"
+  }
+}
