@@ -2,8 +2,10 @@ import { FC, ReactEventHandler, ReactNode } from 'react'
 
 import { ButtonComponent } from './Button.styles'
 
+export type Variants = 'primary' | 'secondary' | 'icon'
+
 export interface CommonButtonProps {
-	variant?: 'primary' | 'secondary' | 'icon'
+	variant?: Variants
 	type?: 'button' | 'submit' | 'reset'
 	onClick?: ReactEventHandler<HTMLButtonElement>
 	hasFullWidth?: boolean
