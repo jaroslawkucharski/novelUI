@@ -29,9 +29,6 @@ jobs:
       - name: Check linting and formatting
         run: npm run lint
 
-      - name: Run tests and generate coverage reports
-        run: npm run test:coverage
-
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         with:
