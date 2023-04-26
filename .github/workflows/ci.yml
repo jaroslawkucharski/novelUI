@@ -1,0 +1,38 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:     
+      - main
+      
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to the repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache-dependency-path: package-lock.json
+
+      - name: Install package dependencies
+        run: npm install
+
+      - name: Check linting and formatting
+        run: npm run lint
+
+      - name: Generate coverage reports
+        run: npm run coverage
+        
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

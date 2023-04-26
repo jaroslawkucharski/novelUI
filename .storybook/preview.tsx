@@ -1,11 +1,20 @@
 import type { Preview } from '@storybook/react'
 import React from 'react'
+import { ThemeProvider } from 'styled-components'
 
-const withThemeProvider = (Story: any) => {
+import { GlobalStyles } from '../src/styles/GlobalStyles'
+import { darkTheme, lightTheme } from '../src/styles/theme'
+
+const withThemeProvider = (Story: any, context) => {
+	const theme = context.parameters.theme || context.globals.theme
+	const storyTheme = theme === 'dark' ? darkTheme : lightTheme
+
 	return (
-		<div>			
+		<ThemeProvider theme={storyTheme}>
+			<GlobalStyles />
+
 			<Story />
-		</div>
+		</ThemeProvider>
 	)
 }
 
@@ -29,4 +38,3 @@ const preview: Preview = {
 }
 
 export default preview
-
