@@ -2,7 +2,7 @@ import { render, waitFor } from '../../utils/test-utils'
 import { Button } from './Button'
 
 describe('components/Button', () => {
-	it('should be variant primary', async () => {
+	it('it should render', async () => {
 		const { getByTestId } = render(<Button label="Button" />)
 
 		await waitFor(() => {

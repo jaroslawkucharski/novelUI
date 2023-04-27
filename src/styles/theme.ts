@@ -1,4 +1,4 @@
-const colors = {
+export const colors = {
 	dark100: 'rgba(9, 9, 9, 1)',
 	dark80: 'rgba(9, 9, 9, 0.8)',
 	dark50: 'rgba(9, 9, 9, 0.5)',
@@ -9,7 +9,7 @@ const colors = {
 	light20: 'rgba(221, 221, 221, 0.2)'
 }
 
-const font = {
+export const font = {
 	weights: {
 		regular: 400,
 		medium: 500,
