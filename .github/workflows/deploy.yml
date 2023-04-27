@@ -9,32 +9,25 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout to the repository
         uses: actions/checkout@v3
-
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
           cache-dependency-path: package-lock.json
-
       - name: Install package dependencies
         run: npm install
-
       - name: Build package
         run: npm run build
-
       - name: Package release
         run: npm run release
         env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-
       - name: Generate coverage reports
         run: npm run coverage
-        
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         with:
