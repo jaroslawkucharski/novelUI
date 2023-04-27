@@ -1,8 +1,9 @@
-name: Continuous Delivery
+name: Deploy
 on:
   push:
     branches:
       - main
+      
 jobs:
   release:
     name: Release
