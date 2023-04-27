@@ -6,9 +6,6 @@ on:
       - main
 
 jobs:
-  release:
-    runs-on: ubuntu-latest
-
     steps:
       - name: Checkout to the repository
         uses: actions/checkout@v3
