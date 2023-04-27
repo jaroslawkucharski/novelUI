@@ -1,12 +1,12 @@
 name: Deploy
+
 on:
   push:
     branches:
       - main
 
 jobs:
-  build:
-    name: Release
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
