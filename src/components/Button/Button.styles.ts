@@ -1,6 +1,6 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 
-import { CommonButtonProps, Variants } from './Button'
+import { CommonButtonProps } from './Button'
 
 const variantStyles = ({ colors }: DefaultTheme, variant = 'primary') =>
 	({
@@ -10,6 +10,27 @@ const variantStyles = ({ colors }: DefaultTheme, variant = 'primary') =>
 
 			&:hover {
 				background: ${colors.secondary80};
+			}
+
+			&:active::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 0;
+				height: 0;
+				border-radius: 50%;
+				transform: translate(-50%, -50%);
+				background-color: ${colors.secondary50};
+				animation: ripple 0.5s ease-out;
+			}
+
+			@keyframes ripple {
+				to {
+					width: 200%;
+					padding-bottom: 200%;
+					opacity: 0;
+				}
 			}
 
 			&:disabled,
@@ -60,6 +81,8 @@ const variantStyles = ({ colors }: DefaultTheme, variant = 'primary') =>
 
 export const ButtonComponent = styled.button<CommonButtonProps>`
 	cursor: pointer;
+	position: relative;
+	overflow: hidden;
 	padding: 13px 16px;
 	min-width: 160px;
 	height: 42px;
@@ -70,56 +93,16 @@ export const ButtonComponent = styled.button<CommonButtonProps>`
 	justify-content: center;
 	align-items: center;
 	gap: 8px;
-	position: relative;
 	transition: background 0.4s;
 
-	${({ theme: { font }, hasFullWidth }) =>
+	${({ theme: { font }, width, hasFullWidth, borderRadius }) =>
 		css`
+			width: ${width};
 			width: ${hasFullWidth && '100%'};
+			border-radius: ${borderRadius}px;
 			font-size: ${font.sizes.s16};
 			font-weight: ${font.weights.regular};
 		`}
-
-	${({ theme: { colors }, isLoading, variant = 'primary' }) => {
-		const isPrimaryStyle = (variant: Variants) =>
-			variant === 'primary' || variant === 'icon'
-
-		return (
-			isLoading &&
-			css`
-				cursor: wait;
-				pointer-events: none;
-
-				&::after {
-					content: '';
-					top: 0;
-					bottom: 0;
-					margin: auto;
-					left: 0;
-					right: 0;
-					width: 16px;
-					height: 16px;
-					border: 4px solid transparent;
-					border-radius: 50%;
-					border-top-color: ${isPrimaryStyle(variant)
-						? colors.main100
-						: colors.secondary100};
-					position: absolute;
-					animation: spinner 1s ease infinite;
-				}
-
-				@keyframes spinner {
-					from {
-						transform: rotate(0turn);
-					}
-
-					to {
-						transform: rotate(1turn);
-					}
-				}
-			`
-		)
-	}}
 
 	${({ theme, variant }) => variantStyles(theme, variant)}
 `

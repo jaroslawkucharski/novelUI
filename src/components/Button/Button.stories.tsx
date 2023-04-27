@@ -5,7 +5,17 @@ import { Button } from './Button'
 
 const meta: Meta<typeof Button> = {
 	title: 'Components/Button',
-	component: Button
+	component: Button,
+	argTypes: {
+		borderRadius: {
+			control: {
+				type: 'range',
+				min: 0,
+				max: 20,
+				step: 1
+			}
+		}
+	}
 }
 
 export default meta
@@ -16,8 +26,10 @@ export const Primary: Story = {
 		variant: 'primary',
 		label: 'Button',
 		type: 'button',
-		onClick: () => alert('Click!'),
+		// onClick: () => alert('Click!'),
+		width: 'auto',
 		hasFullWidth: false,
+		borderRadius: 0,
 		isLoading: false,
 		isDisabled: false,
 		'data-testid': 'button'
@@ -31,7 +43,9 @@ export const PrimaryWithIcon: Story = {
 		icon: <AiFillLike />,
 		type: 'button',
 		onClick: () => alert('Click!'),
+		width: 'auto',
 		hasFullWidth: false,
+		borderRadius: 0,
 		isLoading: false,
 		isDisabled: false,
 		'data-testid': 'button'
@@ -44,7 +58,7 @@ export const PrimaryOnlyIcon: Story = {
 		icon: <AiFillLike />,
 		type: 'button',
 		onClick: () => alert('Click!'),
-		hasFullWidth: false,
+		borderRadius: 0,
 		isLoading: false,
 		isDisabled: false,
 		'data-testid': 'button'
@@ -57,7 +71,9 @@ export const Secondary: Story = {
 		label: 'Button',
 		type: 'button',
 		onClick: () => alert('Click!'),
+		width: 'auto',
 		hasFullWidth: false,
+		borderRadius: 0,
 		isLoading: false,
 		isDisabled: false,
 		'data-testid': 'button'
