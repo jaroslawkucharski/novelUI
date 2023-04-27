@@ -1,5 +1,5 @@
 {
-  "name": "novelui",
+  "name": "novelui-library",
   "version": "2.0.0",
   "description": "Simple React component library.",
   "main": "./dist/index.js",
