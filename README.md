@@ -1,15 +1,15 @@
+# novelUI
+
+## Simple React component library.
+
 <div align='center'>
 
 # <img src='https://raw.githubusercontent.com/jaroslaw91/novelUI/ef991cc73e7b759f6b32560b3d97c05527b53180/src/assets/images/nui.svg' width='200px' />
 
-![ci](https://github.com/jaroslawkucharski/novelUI/actions/workflows/ci.yml/badge.svg)
 [![codecov](https://codecov.io/gh/jaroslawkucharski/novelUI/branch/main/graph/badge.svg?token=2O9WXY075W)](https://codecov.io/gh/jaroslawkucharski/novelUI)
-![version](https://4.vercel.app/npm/version/:package)
-
-![licence](https://4.vercel.app/github/license/jaroslawkucharski/novelUI)
+![version](https://4.vercel.app/npm/version/novelui-library)
 ![size](https://4.vercel.app/github/size/jaroslawkucharski/novelUI)
-![downloads](https://4.vercel.app/github/downloads/jaroslawkucharski/novelUI)
-![issues](https://4.vercel.app/github/issues/jaroslawkucharski/novelUI)
+![licence](https://4.vercel.app/github/license/jaroslawkucharski/novelUI)
 
 ##
 
