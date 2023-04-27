@@ -19,7 +19,7 @@
     "coverage": "jest --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "release": "yarn version --patch && pnpm badges && pnpm build"
+    "release": "semantic-release --branches main"
   },
   "husky": {
     "hooks": {
