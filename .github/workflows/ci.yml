@@ -31,6 +31,8 @@ jobs:
     needs: [build]
 
     steps:
+    - name: 📦 Install packages
+      run: npm install
     - name: 📊 Generate coverage reports
       run: npm run coverage
     - name: 🔥 Upload coverage reports to Codecov

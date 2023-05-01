@@ -31,6 +31,8 @@ jobs:
     needs: [release]
 
     steps:
+    - name: 📦 Install packages
+      run: npm install
     - name: 📊 Generate coverage reports
       run: npm run coverage
     - name: 🔥 Upload coverage reports to Codecov
@@ -44,6 +46,8 @@ jobs:
     needs: [release, codecov]
 
     steps:
+    - name: 📦 Install packages
+      run: npm install
     - name: 🚀 App publish
       run: npm run semantic-release
       env: 
