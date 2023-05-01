@@ -2,14 +2,18 @@ name: Deploy
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: '*'
 
 jobs:
   release:
     name: 🚀 Release
     runs-on: ubuntu-latest
-    steps:
+
+    setup:
+      name: Setup
+      steps:
       - name: 🛫 Checkout to the repository
         uses: actions/checkout@v3
       - name: 🟢 Setup Node.js
@@ -20,13 +24,25 @@ jobs:
           registry-url: https://registry.npmjs.org
       - name: 📦 Install packages
         run: npm install
+
+    build:
+      name: Build
+      steps:
       - name: 🧱 Build the app
         run: npm run build
+
+    publish:
+      name: Publish
+      steps:
       - name: 🚀 App publish
         run: npm run semantic-release
         env: 
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+    codecov:
+      name: Codecov
+      steps:
       - name: 📊 Generate coverage reports
         run: npm run coverage
       - name: 🔥 Upload coverage reports to Codecov

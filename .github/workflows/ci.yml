@@ -9,7 +9,10 @@ jobs:
   build:
     name: 🧱 Build
     runs-on: ubuntu-latest
-    steps:
+
+    setup:
+      name: Setup
+      steps:
       - name: 🛫 Checkout to the repository
         uses: actions/checkout@v3
       - name: 🟢 Setup Node.js
@@ -19,8 +22,18 @@ jobs:
           cache-dependency-path: package-lock.json
       - name: 📦 Install packages
         run: npm install
+
+    test:
+      name: Test
+      steps:
       - name: ✅ Check linting and formatting
         run: npm run lint
+      - name: 🧪 Components testing
+        run: npm run test
+
+    codecov:
+      name: Codecov
+      steps:
       - name: 📊 Generate coverage reports
         run: npm run coverage
       - name: 🔥 Upload coverage reports to Codecov
