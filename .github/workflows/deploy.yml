@@ -18,11 +18,11 @@ jobs:
           node-version: 18.x
           cache-dependency-path: package-lock.json
       - name: 📦 Install packages
-        run: pnpm install
+        run: npm install
       - name: 🧱 Build the app
-        run: pnpm run build
+        run: npm run build
       - name: 🚀 Package publish
-        run: pnpm run publish
+        run: npm run publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: 📊 Generate coverage reports
