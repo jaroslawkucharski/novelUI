@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: 18.x
           cache-dependency-path: package-lock.json
+          registry-url: https://registry.npmjs.org
       - name: 📦 Install packages
         run: npm install
       - name: 🧱 Build the app
