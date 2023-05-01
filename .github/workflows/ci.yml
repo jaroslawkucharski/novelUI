@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     setup:
+      name: Setup
+      runs-on: ubuntu-latest
       steps:
       - name: 🛫 Checkout to the repository
         uses: actions/checkout@v3
@@ -23,6 +25,8 @@ jobs:
         run: npm install
 
     test:
+      name: Test
+      runs-on: ubuntu-latest
       steps:
       - name: ✅ Check linting and formatting
         run: npm run lint
@@ -30,6 +34,8 @@ jobs:
         run: npm run test
 
     codecov:
+      name: Codecov
+      runs-on: ubuntu-latest
       steps:
       - name: 📊 Generate coverage reports
         run: npm run coverage
