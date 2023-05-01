@@ -1,7 +1,7 @@
 name: Deploy
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
@@ -10,7 +10,7 @@ jobs:
     name: 🚀 Release
     runs-on: ubuntu-latest
     steps:
-      - name: ✅ Checkout to the repository
+      - name: 🛫 Checkout to the repository
         uses: actions/checkout@v3
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v3
@@ -29,7 +29,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: 📊 Generate coverage reports
         run: npm run coverage
-      - name: 🚀 Upload coverage reports to Codecov
+      - name: 🔥 Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
