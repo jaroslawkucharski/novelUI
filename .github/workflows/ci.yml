@@ -10,36 +10,29 @@ jobs:
     name: 🧱 Build
     runs-on: ubuntu-latest
 
-    setup:
-      name: Setup
-      runs-on: ubuntu-latest
-      steps:
-      - name: 🛫 Checkout to the repository
-        uses: actions/checkout@v3
-      - name: 🟢 Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-          cache-dependency-path: package-lock.json
-      - name: 📦 Install packages
-        run: npm install
+    steps:
+    - name: 🛫 Checkout to the repository
+      uses: actions/checkout@v3
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        cache-dependency-path: package-lock.json
+    - name: 📦 Install packages
+      run: npm install
+    - name: ✅ Check linting and formatting
+      run: npm run lint
+    - name: 🧪 Components testing
+      run: npm run test
 
-    test:
-      name: Test
-      runs-on: ubuntu-latest
-      steps:
-      - name: ✅ Check linting and formatting
-        run: npm run lint
-      - name: 🧪 Components testing
-        run: npm run test
-
-    codecov:
-      name: Codecov
-      runs-on: ubuntu-latest
-      steps:
-      - name: 📊 Generate coverage reports
-        run: npm run coverage
-      - name: 🔥 Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+  codecov:
+    name: 🔥 Codecov
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📊 Generate coverage reports
+      run: npm run coverage
+    - name: 🔥 Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
