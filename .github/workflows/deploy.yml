@@ -31,6 +31,13 @@ jobs:
     needs: [release]
 
     steps:
+    - name: 🛫 Checkout to the repository
+      uses: actions/checkout@v3
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        cache-dependency-path: package-lock.json
     - name: 📦 Install packages
       run: npm install
     - name: 📊 Generate coverage reports
@@ -46,6 +53,13 @@ jobs:
     needs: [release, codecov]
 
     steps:
+    - name: 🛫 Checkout to the repository
+      uses: actions/checkout@v3
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        cache-dependency-path: package-lock.json
     - name: 📦 Install packages
       run: npm install
     - name: 🚀 App publish
