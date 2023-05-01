@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    pull_request:
-      branches: '*'
 
 jobs:
   release:
@@ -25,10 +23,10 @@ jobs:
       - name: 🧱 Build the app
         run: npm run build
       - name: 🚀 App publish
-      - run: npm run semantic-release
-      env: 
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npm run semantic-release
+        env: 
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: 📊 Generate coverage reports
         run: npm run coverage
       - name: 🚀 Upload coverage reports to Codecov
