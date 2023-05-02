@@ -1,13 +1,13 @@
-name: Pull Request check
+name: Release
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
+    - main
 
 jobs:
-  check-and-test:
-    name: Check and test
+  release:
+    name: 🚀 Release
     runs-on: ubuntu-latest
 
     steps:
@@ -18,17 +18,21 @@ jobs:
       with:
         node-version: 18.x
         cache-dependency-path: package-lock.json
+        registry-url: https://registry.npmjs.org
     - name: Install packages
       run: npm install
-    - name: Check linting and formatting
-      run: npm run lint
-    - name: Components testing
-      run: npm run test
+    - name: Build the app
+      run: npm run build
+    - name: App publish
+      run: npm run semantic-release
+      env: 
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
   codecov:
     name: 🔥 Codecov
     runs-on: ubuntu-latest
-    needs: [check-and-test]
+    needs: [release]
 
     steps:
     - name: Checkout to the repository
