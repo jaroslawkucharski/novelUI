@@ -10,10 +10,17 @@ import {
 import React, { ReactElement } from 'react'
 import { ThemeProvider } from 'styled-components'
 
+import { GlobalStyles } from '../styles/GlobalStyles'
 import { darkTheme } from '../styles/theme'
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
-	return <ThemeProvider theme={darkTheme}>{children}</ThemeProvider>
+	return (
+		<ThemeProvider theme={darkTheme}>
+			<GlobalStyles />
+
+			{children}
+		</ThemeProvider>
+	)
 }
 
 const customRender = (

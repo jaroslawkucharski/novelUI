@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { SpinnerComponent } from './Spinner.styles'
+import { SpinnerComponent, SpinnerComponentWrapper } from './Spinner.styles'
 
 export interface SpinnerProps {
 	color?: string
@@ -11,10 +11,12 @@ export const Spinner: FC<SpinnerProps> = ({
 	color,
 	'data-testid': dataTestId = 'spinner'
 }) => (
-	<SpinnerComponent
-		color={color}
-		data-testid={dataTestId}
-	/>
+	<SpinnerComponentWrapper>
+		<SpinnerComponent
+			color={color}
+			data-testid={dataTestId}
+		/>
+	</SpinnerComponentWrapper>
 )
 
 Spinner.displayName = 'novelUI/Components/Spinner'

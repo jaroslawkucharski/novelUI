@@ -9,5 +9,9 @@ module.exports = {
 	],
 	coverageDirectory: 'coverage',
 	preset: 'ts-jest',
-	testEnvironment: 'jsdom'
+	testEnvironment: 'jsdom',
+	transform: {
+		'^.+\\.woff$': 'jest-transform-stub',
+		'^.+\\.woff2$': 'jest-transform-stub'
+	}
 }
