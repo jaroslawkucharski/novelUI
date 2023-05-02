@@ -14,7 +14,6 @@
     "lint": "eslint --fix ./src",
     "format": "prettier --write ./src",
     "prepare": "husky install",
-    "commit": "git-cz",
     "test": "jest",
     "coverage": "jest --coverage",
     "storybook": "storybook dev -p 6006",
