@@ -50,6 +50,27 @@ const variantStyles = ({ colors }: DefaultTheme, variant = 'primary') =>
 				background: ${colors.secondary100};
 			}
 
+			&:active::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 0;
+				height: 0;
+				border-radius: 50%;
+				transform: translate(-50%, -50%);
+				background-color: ${colors.main50};
+				animation: ripple 0.5s ease-out;
+			}
+
+			@keyframes ripple {
+				to {
+					width: 200%;
+					padding-bottom: 200%;
+					opacity: 0;
+				}
+			}
+
 			&:disabled,
 			&[disabled] {
 				color: ${colors.secondary50};
@@ -68,6 +89,27 @@ const variantStyles = ({ colors }: DefaultTheme, variant = 'primary') =>
 
 			&:hover {
 				background: ${colors.secondary80};
+			}
+
+			&:active::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 0;
+				height: 0;
+				border-radius: 50%;
+				transform: translate(-50%, -50%);
+				background-color: ${colors.secondary50};
+				animation: ripple 0.5s ease-out;
+			}
+
+			@keyframes ripple {
+				to {
+					width: 200%;
+					padding-bottom: 200%;
+					opacity: 0;
+				}
 			}
 
 			&:disabled,

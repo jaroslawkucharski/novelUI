@@ -49,7 +49,8 @@ export const Button: FC<ButtonProps> = ({
 	borderRadius = 0,
 	isLoading = false,
 	isDisabled = false,
-	'data-testid': dataTestId = 'button'
+	'data-testid': dataTestId = 'button',
+	...restProps
 }) => (
 	<ButtonComponent
 		variant={variant}
@@ -61,11 +62,10 @@ export const Button: FC<ButtonProps> = ({
 		isLoading={isLoading}
 		disabled={isDisabled}
 		data-testid={dataTestId}
+		{...restProps}
 	>
 		{isLoading ? (
-			<Spinner
-				color={variant === 'secondary' ? colors.light100 : colors.dark100}
-			/>
+			<Spinner color={variant === 'secondary' ? '' : colors.dark100} />
 		) : (
 			<>
 				{icon} {label}
