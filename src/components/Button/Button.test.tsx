@@ -22,4 +22,44 @@ describe('components/Button', () => {
 			expect(getByTestId('button')).toBeInTheDocument()
 		})
 	})
+
+	it('should have secondary variant', async () => {
+		const { getByTestId } = render(
+			<Button
+				label="Button"
+				variant="secondary"
+			/>
+		)
+
+		await waitFor(() => {
+			expect(getByTestId('button')).toBeInTheDocument()
+		})
+	})
+
+	it('it should load ', async () => {
+		const { getByTestId } = render(
+			<Button
+				label="Button"
+				isLoading
+			/>
+		)
+
+		await waitFor(() => {
+			expect(getByTestId('button')).toBeInTheDocument()
+		})
+	})
+
+	it('it should load and have secondary variant', async () => {
+		const { getByTestId } = render(
+			<Button
+				label="Button"
+				variant="secondary"
+				isLoading
+			/>
+		)
+
+		await waitFor(() => {
+			expect(getByTestId('button')).toBeInTheDocument()
+		})
+	})
 })
