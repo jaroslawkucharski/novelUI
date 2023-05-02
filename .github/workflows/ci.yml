@@ -28,7 +28,7 @@ jobs:
   codecov:
     name: 🔥 Codecov
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [check-and-test]
 
     steps:
     - name: Checkout to the repository
