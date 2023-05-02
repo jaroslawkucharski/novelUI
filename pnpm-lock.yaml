@@ -32,6 +32,7 @@ specifiers:
   husky: ^8.0.3
   jest: ^29.5.0
   jest-environment-jsdom: ^29.5.0
+  jest-transform-stub: ^2.0.0
   lint-staged: ^13.2.1
   prettier: ^2.8.8
   prop-types: ^15.8.1
@@ -77,6 +78,7 @@ devDependencies:
   husky: 8.0.3
   jest: 29.5.0
   jest-environment-jsdom: 29.5.0
+  jest-transform-stub: 2.0.0
   lint-staged: 13.2.2
   prettier: 2.8.8
   prop-types: 15.8.1
@@ -8015,6 +8017,10 @@ packages:
       semver: 7.5.0
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /jest-transform-stub/2.0.0:
+    resolution: {integrity: sha512-lspHaCRx/mBbnm3h4uMMS3R5aZzMwyNpNIJLXj4cEsV0mIUtS4IjYJLSoyjRCtnxb6RIGJ4NL2quZzfIeNhbkg==}
     dev: true
 
   /jest-util/29.5.0:
