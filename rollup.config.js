@@ -1,5 +1,6 @@
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
+import url from '@rollup/plugin-url'
 
 import packageJson from './package.json' assert { type: 'json' }
 
@@ -22,5 +23,11 @@ export default {
 			sourcemap: true
 		}
 	],
-	plugins: [commonjs(), typescript()]
+	plugins: [
+		commonjs(),
+		typescript(),
+		url({
+			include: ['**/*.woff', '**/*.woff2']
+		})
+	]
 }
