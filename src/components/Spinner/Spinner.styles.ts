@@ -7,6 +7,20 @@ export const SpinnerComponentWrapper = styled.span<SpinnerProps>`
 	position: absolute;
 	width: 100%;
 	height: 100%;
+
+	${({ theme: { colors }, hoverColor }) =>
+		css`
+			&:hover {
+				> span::before {
+					border-top-color: ${hoverColor || colors.secondary100};
+				}
+
+				> span::after {
+					border-bottom-color: ${hoverColor || colors.secondary100};
+					border-right-color: ${hoverColor || colors.secondary100};
+				}
+			}
+		`}
 `
 
 export const SpinnerComponent = styled.span<SpinnerProps>`

@@ -53,6 +53,7 @@ export const Button: FC<ButtonProps> = ({
 	...restProps
 }) => (
 	<ButtonComponent
+		id="button"
 		variant={variant}
 		type={type}
 		onClick={onClick}
@@ -65,7 +66,10 @@ export const Button: FC<ButtonProps> = ({
 		{...restProps}
 	>
 		{isLoading ? (
-			<Spinner color={variant === 'secondary' ? '' : colors.dark100} />
+			<Spinner
+				color={variant === 'secondary' ? '' : colors.dark100}
+				hoverColor={colors.dark100}
+			/>
 		) : (
 			<>
 				{icon} {label}
